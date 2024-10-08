@@ -1,0 +1,21 @@
+.counter {
+  padding: rem-calc(10);
+  border-radius: rem-calc(10);
+  border: rem-calc(2) solid #000;
+  background-color: $white;
+
+  p {
+    font-size: rem-calc(16);
+    margin-top: rem-calc(4);
+
+    :first-child {
+      margin-top: 0;
+    }
+  }
+
+  .buttons {
+    margin-top: rem-calc(10);
+    display: flex;
+    gap: rem-calc(6);
+  }
+}

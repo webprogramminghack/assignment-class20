@@ -1,0 +1,26 @@
+.formInputs {
+  display: flex;
+  flex-direction: column;
+  gap: rem-calc(10);
+  border: rem-calc(2) solid black;
+  padding: rem-calc(10);
+  border-radius: rem-calc(5);
+  background-color: $white;
+
+  .inputGroup {
+    label {
+      font-size: rem-calc(14);
+      font-weight: 500;
+      margin-bottom: rem-calc(5);
+      display: block;
+    }
+
+    input {
+      padding: 10px;
+    }
+  }
+
+  button {
+    display: block !important;
+  }
+}
