@@ -1,4 +1,4 @@
-# Homework Assignment: Managing Form State with `useReducer` in React and TypeScript
+# Coding Assignment: Managing Form State with `useReducer` in React and TypeScript
 
 ## Objective
 

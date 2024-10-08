@@ -1,60 +1,21 @@
-# Homework Assignment: Create a `usePrevious` Custom Hook in React with TypeScript
+# Coding Assignment
 
-## Objective
+This repository contains coding assignments for students. The main goal is to complete and understand the functionality of the components in this project. Each component has its own README file with detailed instructions, and you should review them before starting the implementation.
 
-The objective of this assignment is to practice creating custom hooks in React using TypeScript. You will implement a custom hook called `usePrevious` that captures the previous value of a state or prop whenever it changes.
+## Components Overview
 
-## Instructions
+### 1. [CounterWithPrevious Component](https://github.com/webprogramminghack/assignment-class20/tree/main/src/components/CounterWithPrevious)
 
-### Problem Description
+- This component maintains a count and also tracks the previous value of the count.
+- It demonstrates state management and use of React hooks for storing and updating previous values.
 
-You are provided with a functional component that uses a custom hook called `usePrevious`. The component keeps track of a counter value and displays both the current and previous values. Your task is to **implement the `usePrevious` hook** to make this component work correctly.
+**Instructions**:  
+Check out the detailed README file [here](https://github.com/webprogramminghack/assignment-class20/tree/main/src/components/CounterWithPrevious) for more information on how to approach this component.
 
-### Step 1: Create the `usePrevious` Hook
+### 2. [UserFormWithReducer Component](https://github.com/webprogramminghack/assignment-class20/tree/main/src/components/UserFormWithReducer)
 
-Implement the custom hook `usePrevious` that:
+- This component uses the `useReducer` hook to manage complex form states.
+- It is designed to help students learn how to use the `useReducer` hook for form inputs and state management.
 
-1. **Accepts a single argument**: the current value of a state or prop (`value`).
-2. **Returns the previous value** of the state or prop whenever it changes.
-3. Uses React’s `useRef` hook to store the current and previous values.
-4. Uses **TypeScript’s generics** to make the hook type-safe for different value types.
-
-### Step 2: Understand the `usePrevious` Behavior
-
-The `usePrevious` hook should:
-
-- Store the previous value of a state or prop in a `useRef` object.
-- Update the `useRef` object every time the value changes.
-- Return the previous value before the change occurred.
-
-### Initial Code
-
-Below is the initial code you will start with:
-
-```typescript
-import React, { useState } from 'react';
-
-// -------- Start coding here --------
-
-export default function usePrevious<T>(value: T): T | undefined {
-  // Implement your usePrevious hook here
-}
-
-// -------- Don't change the code below --------
-
-const CounterComponent: React.FC = () => {
-  const [count, setCount] = useState(0);
-  const previousCount = usePrevious(count);
-
-  return (
-    <div>
-      <h1>Counter</h1>
-      <p>Current Count: {count}</p>
-      <p>Previous Count: {previousCount}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-    </div>
-  );
-};
-
-export default CounterComponent;
-```
+**Instructions**:  
+Please review the README file [here](https://github.com/webprogramminghack/assignment-class20/tree/main/src/components/UserFormWithReducer) for step-by-step guidance on working with this component.
