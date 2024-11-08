@@ -6,7 +6,7 @@ import { usePrevious } from '@/hooks/usePrevious';
 export const CounterWithPrevious: React.FC = () => {
   const [count, setCount] = useState(0);
   // please implement the usePrevious hook
-  const previousCount = usePrevious(count);
+  const previousCount = usePrevious<number>(count);
 
   const handleIncrement = () => {
     setCount((prevCount) => prevCount + 1);

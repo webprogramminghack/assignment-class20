@@ -1,8 +1,8 @@
 // implement the usePrevious hook here
 import { useRef, useEffect } from "react";
 
-export const usePrevious = (value: number = 0): number => {
-  const prevCountRef = useRef<number>(value);
+export const usePrevious = <T>(value: T): T => {
+  const prevCountRef = useRef<T>(value);
 
   useEffect(() => {
     prevCountRef.current = value;

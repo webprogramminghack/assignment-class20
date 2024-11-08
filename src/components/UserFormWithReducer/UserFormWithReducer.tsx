@@ -21,6 +21,16 @@ const initialState: FormState = {
 
 function formReducer(state: FormState, action: Action): FormState {
   // please implement the reducer
+  const { type, payload } = action;
+  switch (type) {
+    case 'UPDATE_NAME': return { ...state, name: payload};
+    case 'UPDATE_EMAIL': return { ...state, email: payload};
+    case 'UPDATE_AGE': return { ...state, age: payload};
+    default: {
+      const _exhaustiveCheck: never = action;
+      throw new Error(`Unhandled action type: ${_exhaustiveCheck}`);
+    }
+  }
 }
 
 // Step 5: Implement the `UserForm` component using `useReducer`
@@ -34,11 +44,25 @@ export const UserFormWithReducer: React.FC = () => {
 
     // make the switch case and utilize the name to differentiate between the fields
     // value is for payload
+    switch (name) {
+      case 'name':
+        dispatch({ type: 'UPDATE_NAME', payload: value});
+        break;
+      case 'email':
+        dispatch({ type: 'UPDATE_EMAIL', payload: value});
+        break;
+      case 'age':
+        dispatch({ type: 'UPDATE_AGE', payload: value});
+        break;
+    }
   };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     console.log(state);
+    dispatch({ type: 'UPDATE_NAME', payload: ''});
+    dispatch({ type: 'UPDATE_EMAIL', payload: ''});
+    dispatch({ type: 'UPDATE_AGE', payload: ''});
   };
 
   return (
@@ -59,7 +83,7 @@ export const UserFormWithReducer: React.FC = () => {
           type='email'
           name='email'
           id='email'
-          value={state.name}
+          value={state.email}
           onChange={handleChange}
         />
       </div>
@@ -69,7 +93,7 @@ export const UserFormWithReducer: React.FC = () => {
           type='text'
           name='age'
           id='age'
-          value={state.name}
+          value={state.age}
           onChange={handleChange}
         />
       </div>

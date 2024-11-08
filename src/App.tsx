@@ -7,7 +7,7 @@ function App() {
     <div className={styles.container}>
       {/* Test the component here */}
       {/* <CounterWithPrevious /> */}
-      {/* <UserFormWithReducer /> */}
+      <UserFormWithReducer />
     </div>
   );
 }
