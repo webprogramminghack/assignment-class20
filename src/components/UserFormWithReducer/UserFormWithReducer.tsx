@@ -1,6 +1,6 @@
-import React, { useReducer, ChangeEvent, FormEvent } from 'react';
-import styles from './UserFormWithReducer.module.scss';
 import { Button } from '@/components/Button';
+import React, { ChangeEvent, FormEvent, useReducer } from 'react';
+import styles from './UserFormWithReducer.module.scss';
 
 interface FormState {
   name: string;
@@ -21,6 +21,18 @@ const initialState: FormState = {
 
 function formReducer(state: FormState, action: Action): FormState {
   // please implement the reducer
+  switch (action.type) {
+    case 'UPDATE_NAME':
+      return { ...state, name: action.payload };
+    case 'UPDATE_EMAIL':
+      return { ...state, email: action.payload };
+    case 'UPDATE_AGE':
+      return { ...state, age: action.payload };
+    default: {
+      const _exhaustiveCheck: never = action;
+      throw new Error(`Unhandled action type: ${_exhaustiveCheck}`);
+    }
+  }
 }
 
 // Step 5: Implement the `UserForm` component using `useReducer`
@@ -31,6 +43,14 @@ export const UserFormWithReducer: React.FC = () => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     // you can use name to differentiate between the fields
     const { name, value } = e.target;
+    switch (name) {
+      case 'name':
+        return dispatch({ type: 'UPDATE_NAME', payload: value });
+      case 'email':
+        return dispatch({ type: 'UPDATE_EMAIL', payload: value });
+      case 'age':
+        return dispatch({ type: 'UPDATE_AGE', payload: value });
+    }
 
     // make the switch case and utilize the name to differentiate between the fields
     // value is for payload
@@ -59,7 +79,7 @@ export const UserFormWithReducer: React.FC = () => {
           type='email'
           name='email'
           id='email'
-          value={state.name}
+          value={state.email}
           onChange={handleChange}
         />
       </div>
@@ -69,7 +89,7 @@ export const UserFormWithReducer: React.FC = () => {
           type='text'
           name='age'
           id='age'
-          value={state.name}
+          value={state.age}
           onChange={handleChange}
         />
       </div>

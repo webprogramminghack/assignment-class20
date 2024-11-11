@@ -1,7 +1,7 @@
+import { usePrevious } from '@/hooks/usePrevious';
 import React, { useState } from 'react';
 import { Button } from '../Button';
 import styles from './CounterWithPrevious.module.scss';
-import { usePrevious } from '@/hooks/usePrevious';
 
 export const CounterWithPrevious: React.FC = () => {
   const [count, setCount] = useState(0);
