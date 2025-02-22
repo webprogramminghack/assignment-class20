@@ -22,27 +22,45 @@ const initialState: FormState = {
 function formReducer(state: FormState, action: Action): FormState {
   // please implement the reducer
   switch (action.type) {
+    // case 'UPDATE_NAME':
+    //   return {
+    //     name: action.payload,
+    //     email: state.email,
+    //     age: state.age,
+    //   };
+    // case 'UPDATE_EMAIL':
+    //   return {
+    //     name: state.name,
+    //     email: action.payload,
+    //     age: state.age,
+    //   };
+    // case 'UPDATE_AGE':
+    //   return {
+    //     name: state.name,
+    //     email: state.email,
+    //     age: action.payload,
+    //   };
+
+    // menggunakan spread operator
     case 'UPDATE_NAME':
       return {
+        ...state,
         name: action.payload,
-        email: state.email,
-        age: state.age,
       };
     case 'UPDATE_EMAIL':
       return {
-        name: state.name,
+        ...state,
         email: action.payload,
-        age: state.age,
       };
     case 'UPDATE_AGE':
       return {
-        name: state.name,
-        email: state.email,
+        ...state,
         age: action.payload,
       };
-    default:
+    default: {
       const _exhaustiveCheck: never = action;
       throw new Error(`Unhandled action type: ${_exhaustiveCheck}`);
+    }
   }
 }
 
@@ -70,9 +88,10 @@ export const UserFormWithReducer: React.FC = () => {
         dispatch({ type: 'UPDATE_AGE', payload: value });
         console.log(name, ': ', value);
         break;
-      default:
+      default: {
         const _exhaustiveCheck: never = name as never;
         return _exhaustiveCheck;
+      }
     }
   };
 

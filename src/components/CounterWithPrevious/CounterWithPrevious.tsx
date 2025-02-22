@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button } from '../Button';
 import styles from './CounterWithPrevious.module.scss';
 import { usePrevious } from '@/hooks/usePrevious';
